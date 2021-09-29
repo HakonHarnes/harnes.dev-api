@@ -1,0 +1,25 @@
+{
+  "name": "harnes.dev-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HakonHarnes/harnes.dev-api.git"
+  },
+  "author": "Håkon Harnes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HakonHarnes/harnes.dev-api/issues"
+  },
+  "homepage": "https://github.com/HakonHarnes/harnes.dev-api#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-rate-limit": "^5.3.0",
+    "nodemon": "^2.0.13"
+  }
+}
