@@ -3,7 +3,6 @@ const express = require('express');
 const Email = require('./email');
 const cors = require('cors');
 const app = express()
-const port = 3000
 
 // Sets up dotenv
 const dotenv = require('dotenv'); 
@@ -51,6 +50,6 @@ app.post('/api/email', async (req, res) => {
     return res.status(200).send(); 
 })
 
-app.listen(port, () => {
-  console.log(`App listening at http://localhost:${port}`)
+app.listen(process.env.PORT || 5000, () => {
+  console.log(`App listening at http://localhost:${process.env.PORT || 5000}`)
 })
