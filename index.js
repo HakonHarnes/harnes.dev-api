@@ -11,9 +11,9 @@ dotenv.config({ path: './.env' });
 // JSON limiter
 app.use(express.json({ limit: '10kb' }));
 
-// Limiter middleware to prevent DOS-attacks (only 3 emails per hour)
+// Limiter middleware to prevent DOS-attacks (only 10 emails per hour)
 app.use('/api', rateLimit({
-    max: 3,
+    max: 10,
     winowMs: 60 * 60 * 1000,
     message: 'Too many requests from this IP-address. Please try again in one hour.',
 }));
