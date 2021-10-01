@@ -28,6 +28,10 @@ app.use((req, res, next) => {
     next();
 });
 
+app.get('/', (req, res) => {
+    res.status(200).send('Harnes.dev'); 
+})
+
 // End-point for sending email 
 app.post('/api/email', async (req, res) => {
     let { name, email, message } = req.body.data;
