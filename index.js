@@ -11,9 +11,9 @@ dotenv.config({ path: './.env' });
 // JSON limiter
 app.use(express.json({ limit: '10kb' }));
 
-// Limiter middleware to prevent DOS-attacks
+// Limiter middleware to prevent DOS-attacks (only 3 emails per hour)
 app.use('/api', rateLimit({
-    max: 100,
+    max: 3,
     winowMs: 60 * 60 * 1000,
     message: 'Too many requests from this IP-address. Please try again in one hour.',
 }));
@@ -26,10 +26,6 @@ app.use((req, res, next) => {
     console.log(`🟢 - ${req.method} [${req.originalUrl.toUpperCase()}] \n`);
     next();
 });
-
-app.get('/', (req, res) => {
-    res.status(200).send('Harnes.dev'); 
-})
 
 // End-point for sending email 
 app.post('/api/email', async (req, res) => {
@@ -44,6 +40,7 @@ app.post('/api/email', async (req, res) => {
     try {
         await new Email(name, email, message).send(); 
     } catch(error) {
+        console.log(error);
         return res.status(400).send(); 
     }
 

@@ -24,7 +24,7 @@ module.exports = class Email {
     async send(){
         await this.createTransport().sendMail({
             from: process.env.EMAIL_USERNAME, 
-            to: process.env.EMAIL_USERNAME, 
+            to: 'hakon@harnes.dev', 
             subject: `Message from ${this.name} (${this.email})`,
             text: this.message, 
             html: `<p> ${this.message}</p>`
